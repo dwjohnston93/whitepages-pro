@@ -5,20 +5,20 @@ import { Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class ReversePhoneService {
- phone: string;
+ //template url: string = "https://proapi.whitepages.com/3.0/phone?phone=2061115201&api_key=API_KEY";
+ phone: string = "phone?phone="
  myKey: string = "036aaec05d7545efad76ba76088998cd";
- url: string = "https://proapi.whitepages.com/3.0/phone?phone=" + this.phone + "&api_key=" + this.myKey;
-//url: string = "https://proapi.whitepages.com/3.0/phone?phone=2061115201&api_key=API_KEY";
-
+ url: string = "https://proapi.whitepages.com/3.0"
+apiKey: string ="&api_key=036aaec05d7545efad76ba76088998cd"
 
  constructor(private _http: HttpClient) {
     
  }
  
-    getData (input){
-        console.log("service log")
-        this.phone = input; 
-        return this._http.get(this.url)
+    getData (phoneNum){
+        console.log("my url request", this.url + this.phone + phoneNum+ this.apiKey);
+        let urlRequest = this.url + this.phone + phoneNum + this.apiKey; 
+        return this._http.get(urlRequest)
         }
-
+ 
 } 

@@ -11,12 +11,12 @@ export class AppComponent {
 
   results: any;
   
-  constructor(private _http: HttpClient){}
+  constructor(private _reversephone: ReversePhoneService){}
   
   ngOnInit(){}
   
-  getPhoneNumber(input){
-      this._http.getData(input).subscribe( data => {
+  getPhoneNumber(phoneNum){
+      this._reversephone.getData(phoneNum).subscribe( data => {
         console.log(data)
         this.results = data;
         console.log(this.results); 

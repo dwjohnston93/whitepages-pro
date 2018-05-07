@@ -1,9 +1,10 @@
 <h1>Stalk My Friends</h1>
 
 <h2>Enter Phone Number</h2>
-<input [(ngModel)]= "input" #input>
+<!-- -->
+<input [(ngModel)]= "number" #user>
 
-<button (click) = "getPhoneNumber(input.value)"> Run Number </button>
+<button (click) = "getPhoneNumber(user.value)"> Run Number </button>
 
 <p *ngIf = "!results"> </p>
 <p *ngIf = "results"> {{results.carrier}}</p>
