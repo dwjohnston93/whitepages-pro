@@ -9,22 +9,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
 
-  input: any;
-  number: any;
-  results: any; 
-  constructor(private _http: HttpClient){
-    getPhoneNumber(){
-      this._http.getData().subscribe( data => {
+  results: any;
+  
+  constructor(private _http: HttpClient){}
+  
+  ngOnInit(){}
+  
+  getPhoneNumber(input){
+      this._http.getData(input).subscribe( data => {
         console.log(data)
         this.results = data;
         console.log(this.results); 
       })
     }
     
-  }
-  
-  ngOnInit(){}
-  
-  
       
 }
